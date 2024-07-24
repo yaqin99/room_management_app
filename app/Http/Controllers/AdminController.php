@@ -4,17 +4,48 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    
+    public function loginView(){
+        return view('admin.auth.login');
     }
 
+    public function logOut(Request $req){
+        Auth::guard('admin')->logout();
+        //$request dan request() itu sama aja 
+    $req->session()->invalidate();
+ 
+    $req->session()->regenerateToken();
+ 
+    return redirect('/loginView');
+     }
+    public function login (Request $req){
+
+        $req->validate([
+            'username' => 'required' , 
+            'password' => 'required' , 
+        ]); 
+        if (Auth::guard('admin')->attempt(['username' => $req->username , 'password' => $req->password] , $req->remember)) {
+            $req->session()->regenerate();
+ 
+            return redirect()->intended('/admin')->with('success' , 'Selamat Datang Kembali');;
+        } else {
+            return back()->with('gagal' , 'Login Gagal');
+        }
+
+        if (Auth::viaRemember()) {
+
+            $req->session()->regenerate();
+
+            return redirect()->intended('/admin');
+        }
+
+        
+    }
+    
     /**
      * Show the form for creating a new resource.
      */

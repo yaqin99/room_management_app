@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             KategoriSeeder::class , 
             RuanganSeeder::class , 
             GenderSeeder::class , 
+            JamKuliahSeeder::class , 
+            DosenSeeder::class , 
         ]);
     }
 }

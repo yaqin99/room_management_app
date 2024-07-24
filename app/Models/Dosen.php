@@ -10,4 +10,13 @@ class Dosen extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    public function scopeSearchDosen($query ){
+        if (request('search')) {
+            
+                $query->where('nama_dosen','like','%'.request('search').'%');
+             
+        
+      }
+      }
+
 }

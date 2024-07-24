@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('kategori_id');
             $table->foreignId('gender_id');
-            $table->string('nama_ruangan');
-            $table->string('lokasi');
-            $table->string('hint');
-            $table->string('kondisi');
-            $table->string('keterangan');
-            $table->string('status');
+            $table->string('nama_ruangan')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->string('hint')->nullable();
+            $table->string('kondisi')->nullable();
+            $table->string('keterangan')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

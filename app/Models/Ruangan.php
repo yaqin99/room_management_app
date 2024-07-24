@@ -19,4 +19,15 @@ class Ruangan extends Model
         return $this->belongsTo(Gender::class);
  
      }
+
+     public function scopeSearchRuangan($query ){
+        if (request('search')) {
+            $query->whereHas('kategori', function ($query) {
+                $query->where('nama_kategori','like','%'.request('search').'%');
+                // ->orWhere('nik','like','%'.request('search').'%');
+            })->orWhere('nama_ruangan','like','%'.request('search').'%');
+                // ->orWhere('nik','like','%'.request('search').'%');
+        
+      }
+      }
 }

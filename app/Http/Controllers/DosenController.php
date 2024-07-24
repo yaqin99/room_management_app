@@ -10,17 +10,28 @@ class DosenController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function layout()
     {
-        //
+        $data = Dosen::orderBy('nama_dosen','ASC')->searchDosen()->paginate(10);
+        $status = 'dosen' ; 
+        return view('admin.pages.dosen' , [
+            'data' => $data , 
+            'status' => $status , 
+        ]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function editDosen($id)
     {
-        //
+        $update = Dosen::where('id',$id)->update([
+            'nama_dosen' => request('nama_dosen'),
+        ]);
+
+        if($update){
+            return redirect('/admin/dosen');
+        }
     }
 
     /**
@@ -28,7 +39,13 @@ class DosenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $update = Dosen::create([
+            'nama_dosen' => $request->nama_dosen,
+        ]);
+
+        if($update){
+            return redirect('/admin/dosen');
+        }
     }
 
     /**
@@ -58,8 +75,11 @@ class DosenController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Dosen $dosen)
+    public function destroy(Dosen $dosen , $id)
     {
-        //
+        $cek = $dosen::find($id)->delete();
+        if($cek){
+            return redirect('/admin/dosen');
+        }
     }
 }

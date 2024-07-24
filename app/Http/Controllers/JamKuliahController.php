@@ -10,17 +10,44 @@ class JamKuliahController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function layout()
     {
-        //
+        $data = Jam_Kuliah::paginate(15);
+        $status = 'jam' ; 
+        return view(
+            'admin.pages.jam', [
+                'data' => $data , 
+                'status' => $status , 
+            ]
+        );
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function addJam()
     {
-        //
+        $addJam = Jam_Kuliah::create([
+            'jam' => request('nama_jam'),
+            'awal' => request('awal'),
+            'akhir' => request('akhir'),
+        ]);
+
+        if($addJam){
+            return redirect('/admin/jam');
+        }
+    }
+    public function editJam($id)
+    {
+        $update = Jam_Kuliah::where('id',$id)->update([
+            'jam' => request('nama_jam'),
+            'awal' => request('awal'),
+            'akhir' => request('akhir'),
+        ]);
+
+        if($update){
+            return redirect('/admin/jam');
+        }
     }
 
     /**
@@ -58,8 +85,11 @@ class JamKuliahController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jam_Kuliah $jam_Kuliah)
+    public function destroy(Jam_Kuliah $jam_Kuliah,$id)
     {
-        //
+        $cek = $jam_Kuliah::find($id)->delete();
+        if($cek){
+            return redirect('/admin/jam');
+        }
     }
 }
