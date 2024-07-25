@@ -51,8 +51,8 @@
   </script>
 
   <!-- Favicons -->
-  <link href="/AdminAssets/img/unira.png" rel="icon">
-  <link href="/AdminAssets/img/unira.png" rel="apple-touch-icon">
+  <link href="/AdminAssets/img/anu.png" rel="icon">
+  <link href="/AdminAssets/img/anu.png" rel="apple-touch-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <!-- Google Fonts -->
   <link rel="stylesheet" href="/modalAssets/css/ionicons.min.css">
