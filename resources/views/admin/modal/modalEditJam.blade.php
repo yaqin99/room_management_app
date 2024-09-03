@@ -16,6 +16,31 @@
                     </div>
                 </div>
                 <div class="form-group mb-2">
+                    <label  class="form-label">Ruangan</label>
+                    <select class="form-select" required name="ruangan" required aria-label="Default select example">                    
+                      <option selected id="pilihRuangan"></option>
+                      @foreach ($ruangan as $k)        
+                      <option value="{{ $k->id }}">{{ $k->nama_ruangan }}</option>
+                      @endforeach
+                      
+                    </select>
+                  </div>
+                <div class="form-group mb-2">
+                    <label  class="form-label">Hari</label>
+                    <select class="form-select" required name="hari" required aria-label="Default select example">                    
+                      <option selected id="pilihHari"></option>
+                        
+                      <option value="Senin">Senin</option>
+                      <option value="Selasa">Selasa</option>
+                      <option value="Rabu">Rabu</option>
+                      <option value="Kamis">Kamis</option>
+                      <option value="Jum'at">Jum'at</option>
+                      <option value="Sabtu">Sabtu</option>
+                    
+                      
+                    </select>
+                  </div>
+                <div class="form-group mb-2">
                     <label for="ukuran" class="text-dark" >Awal</label>
                     <div class="input-group">
                         <input type="time" class="form-control" required name="awal" id="awal"  aria-describedby="button-addon2">

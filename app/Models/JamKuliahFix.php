@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Jam_Kuliah extends Model
+class JamKuliahFix extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
-
+    public function ruangan(){
+        return $this->belongsTo(Ruangan::class);
+     }
 }

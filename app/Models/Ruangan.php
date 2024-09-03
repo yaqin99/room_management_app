@@ -19,6 +19,11 @@ class Ruangan extends Model
         return $this->belongsTo(Gender::class);
  
      }
+    public function jam_kuliah(){
+
+        return $this->hasMany(JamKuliahFix::class);
+ 
+     }
 
      public function scopeSearchRuangan($query ){
         if (request('search')) {

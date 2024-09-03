@@ -45,6 +45,8 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
+                    <th scope="col">Hari</th>
+                    <th scope="col">Ruangan</th>
                     <th scope="col">Jam Perkuliahan</th>
                     <th scope="col">Durasi</th>
                     <th scope="col">Lama Pembelajaran</th>
@@ -58,6 +60,8 @@
                  
                   <tr>
                     <th scope="row">{{ $loop->index + 1 }}</th>
+                    <td >{{ $syifa->hari }}</td>
+                    <td>{{ $syifa->ruangan->nama_ruangan }}</td>
                     <td><a href="#"  class="dosen text-dark">{{ $syifa->jam }}</a>
                     </td>
                     <td>{{ \Carbon\Carbon::parse($syifa->awal)->format('H:i'). ' - '.\Carbon\Carbon::parse($syifa->akhir)->format('H:i').' WIB'}}</td>
@@ -102,16 +106,7 @@
         </div>
       </div>
     </section>
-   
-    
-  	
 
-       
-       
-       
-
-      
-    
   </main>
     
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
