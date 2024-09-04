@@ -14,14 +14,12 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        $data = Ruangan::with(['kategori','gender'])->SearchRuangan()->paginate(8);
+        $data = Ruangan::with(['kategori','gender','jam_kuliah'])->SearchRuangan()->paginate(8);
         $data->appends(['search' => request('search')]);
-
         $status = 'ruangan' ; 
-       
         return view(
             'dosen.welcome' , [
-                'news' => $data , 
+                'news' => $data->toArray() , 
                 
                 'status' => $status , 
 

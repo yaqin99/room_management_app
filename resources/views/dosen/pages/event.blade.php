@@ -8,7 +8,7 @@
        <div class="blog_section_2">
           <div class="row">
             @foreach ($news as $data)
-               
+
             <div class="col-md-3 mb-5">
                <div class="blog_box">
                   <div class="blog_img"><img src="/img/ruangan.jpg"></div>
