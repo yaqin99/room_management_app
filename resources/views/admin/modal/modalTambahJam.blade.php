@@ -15,6 +15,16 @@
                     </div>
                 </div>
                 <div class="form-group mb-2">
+                  <label  class="form-label">Dosen</label>
+                  <select class="form-select" required name="dosen" required aria-label="Default select example">                    
+                    <option selected>Pilih Dosen</option>
+                    @foreach ($dosen as $k)        
+                    <option value="{{ $k->id }}">{{ $k->nama_dosen }}</option>
+                    @endforeach
+                    
+                  </select>
+                </div>
+                <div class="form-group mb-2">
                     <label  class="form-label">Ruangan</label>
                     <select class="form-select" required name="ruangan" required aria-label="Default select example">                    
                       <option selected >Tentukan Ruangan</option>

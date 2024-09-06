@@ -13,4 +13,7 @@ class JamKuliahFix extends Model
     public function ruangan(){
         return $this->belongsTo(Ruangan::class);
      }
+    public function dosen(){
+        return $this->belongsTo(Dosen::class);
+     }
 }

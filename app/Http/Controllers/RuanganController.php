@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ruangan;
 use App\Models\Kategori;
 use App\Models\Gender;
+use App\Models\JamKuliahFix;
 use Illuminate\Http\Request;
 
 class RuanganController extends Controller
@@ -14,15 +15,14 @@ class RuanganController extends Controller
      */
     public function index()
     {
-        $data = Ruangan::with(['kategori','gender','jam_kuliah'])->SearchRuangan()->paginate(8);
+        $data = Ruangan::with(['kategori','jam_kuliah'])->SearchRuangan()->paginate(8);
+        $data2 = JamKuliahFix::with(['ruangan'])->paginate(8);
         $data->appends(['search' => request('search')]);
         $status = 'ruangan' ; 
         return view(
             'dosen.welcome' , [
-                'news' => $data->toArray() , 
-                
+                'news' => $data2 , 
                 'status' => $status , 
-
             ]
            );
         

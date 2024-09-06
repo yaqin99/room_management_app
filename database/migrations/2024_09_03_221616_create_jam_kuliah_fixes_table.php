@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('jam_kuliah_fixes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ruangan_id');
+            $table->foreignId('dosen_id');
             $table->string('hari');
             $table->string('jam');
             $table->time('awal');

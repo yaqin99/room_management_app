@@ -32,13 +32,10 @@
 
    </head>
    <body>
-      @include('dosen.component.navbar')
-      <!-- about section start -->
-   
-      <!-- blog section start -->
+     @include('dosen.component.navbar')
+      
      @include('dosen.pages.event')
-      <!-- blog section end -->
-      <!-- contact section start -->
+     
     
         
       <div class="contact_section layout_padding">

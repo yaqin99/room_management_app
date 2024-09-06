@@ -45,6 +45,7 @@
                 <thead>
                   <tr>
                     <th scope="col">No</th>
+                    <th scope="col">Pengajar</th>
                     <th scope="col">Hari</th>
                     <th scope="col">Ruangan</th>
                     <th scope="col">Jam Perkuliahan</th>
@@ -60,6 +61,7 @@
                  
                   <tr>
                     <th scope="row">{{ $loop->index + 1 }}</th>
+                    <td >{{ $syifa->dosen->nama_dosen }}</td>
                     <td >{{ $syifa->hari }}</td>
                     <td>{{ $syifa->ruangan->nama_ruangan }}</td>
                     <td><a href="#"  class="dosen text-dark">{{ $syifa->jam }}</a>

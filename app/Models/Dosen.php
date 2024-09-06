@@ -19,4 +19,11 @@ class Dosen extends Model
       }
       }
 
+      public function jam_kuliah(){
+
+        return $this->hasOne(JamKuliahFix::class);
+ 
+     }
+
+
 }

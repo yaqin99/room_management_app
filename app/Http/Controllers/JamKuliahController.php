@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dosen;
 use App\Models\Ruangan;
 use App\Models\JamKuliahFix;
 use Illuminate\Http\Request;
@@ -13,14 +14,16 @@ class JamKuliahController extends Controller
      */
     public function layout()
     {
-        $data = JamKuliahFix::with(['ruangan'])->paginate(10);
+        $data = JamKuliahFix::with(['ruangan','dosen'])->paginate(10);
         $ruangan = Ruangan::all();
+        $dosen = Dosen::all();
         $status = 'jam'; 
         return view(
             'admin.pages.jam', [
                 'data' => $data , 
                 'status' => $status , 
                 'ruangan' => $ruangan , 
+                'dosen' => $dosen , 
             ]
         );
     }
@@ -32,6 +35,7 @@ class JamKuliahController extends Controller
     {
         $addJam = JamKuliahFix::create([
             'jam' => request('nama_jam'),
+            'dosen_id' => request('dosen'),
             'awal' => request('awal'),
             'akhir' => request('akhir'),
             'hari' => request('hari'),
@@ -47,6 +51,7 @@ class JamKuliahController extends Controller
     {
         $update = JamKuliahFix::where('id',$id)->update([
             'jam' => request('nama_jam'),
+            'dosen_id' => request('dosen'),
             'awal' => request('awal'),
             'akhir' => request('akhir'),
             'hari' => request('hari'),
