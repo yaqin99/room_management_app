@@ -58,7 +58,7 @@
                               
                             </ul>
                           </div>
-                          <button class="btn btn-success " type="button" data-bs-toggle="modal" data-bs-target="#modalTambahRuangan"><i class="bi bi-plus-circle"></i> Ruangan</button>
+                          <button class="btn btn-success" id="tambahRuangan" type="button" data-bs-toggle="modal" data-bs-target="#modalTambahRuangan"><i class="bi bi-plus-circle"></i> Ruangan</button>
 
                         </div>
                       </span>

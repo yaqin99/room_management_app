@@ -11,24 +11,24 @@
                 <div class="form-group mb-2">
                     <label for="judul" class="text-dark">Nama Ruangan</label>
                     <div class="input-group">
-                      <input type="text" class="form-control" required name="nama_ruangan"  aria-describedby="button-addon2">
+                      <input type="text" id="nm_ruangan" class="form-control" required name="nama_ruangan"  aria-describedby="button-addon2">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                     <label for="ukuran" class="text-dark" >Lokasi</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" required name="lokasi"   aria-describedby="button-addon2">
+                        <input type="text" id="tb_lokasi" class="form-control" required name="lokasi"   aria-describedby="button-addon2">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                     <label for="kategori" class="text-dark" >Petunjuk</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" required name="hint"  required aria-describedby="button-addon2">
+                        <input type="text" id="tb_petunjuk" class="form-control" required name="hint"  required aria-describedby="button-addon2">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                     <label  class="form-label">Tipe Ruangan</label>
-                    <select class="form-select" required name="kategori" required aria-label="Default select example">                    
+                    <select class="form-select" id="tb_kategori" required name="kategori" required aria-label="Default select example">                    
                       <option selected id="pilihan">Pilih -</option>
                       @foreach ($kategori as $k)        
                       <option value="{{ $k->id }}">{{ $k->nama_kategori }}</option>
@@ -38,7 +38,7 @@
                   </div>
                 <div class="form-group mb-2">
                     <label  class="form-label">Jenis Ruangan</label>
-                    <select class="form-select" required name="gender" required aria-label="Default select example">                    
+                    <select class="form-select" id="tb_ruangan" required name="gender" required aria-label="Default select example">                    
                       <option  selected>Pilih -</option>
                       @foreach ($gender as $k)        
                       <option value="{{ $k->id }}">{{ $k->nama_gender }}</option>
@@ -48,7 +48,7 @@
                   </div>
                 <div class="form-group mb-2">
                     <label  class="form-label">Kondisi</label>
-                    <select class="form-select" required name="kondisi"  aria-label="Default select example">                    
+                    <select class="form-select" id="tb_kondisi" required name="kondisi"  aria-label="Default select example">                    
                       <option  selected>Pilih -</option>
                             
                       <option value="1">Baik</option>
@@ -61,12 +61,12 @@
                 
                 <div class="form-group mb-2">
                     <label for="sinopsis" class="text-dark">Keterangan</label>
-                    <textarea name="keterangan"  class="form-control" ></textarea>
+                    <textarea name="keterangan" id="tb_keterangan" class="form-control" ></textarea>
                 </div>
 
                 <div class="form-group mb-2">
                     <label  class="form-label">Status</label>
-                    <select class="form-select" required name="status" required aria-label="Default select example">                    
+                    <select class="form-select" id="tb_status" required name="status" required aria-label="Default select example">                    
                       <option selected>Pilih -</option>
                             
                       <option value="1">Terpakai</option>
@@ -79,7 +79,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success" onclick="return confirm('Apakah Anda Yakin Menambah Ruangan Ini ?')">Konfirmasi</button>
+                <button type="submit" class="btn btn-success" id="submitTambah" >Konfirmasi</button>
             </div>
         </form>
       </div>

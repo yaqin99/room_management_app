@@ -30,7 +30,7 @@
                     <div class="row">
                       <span class="card-title d-flex justify-content-between">
                         Jam Perkuliahan
-                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambahJam"><i class="bi bi-plus-circle"></i> Jam</button>
+                        <button class="btn btn-success" id="buttonTambahJam" data-bs-toggle="modal" data-bs-target="#modalTambahJam"><i class="bi bi-plus-circle"></i> Jam</button>
                       </span>
 
                     </div>

@@ -69,6 +69,8 @@ class RuanganController extends Controller
             ]
            );
     }
+   
+    
     public function ruangan()
     {
         $kategori = Kategori::all();
@@ -76,6 +78,7 @@ class RuanganController extends Controller
         $status = 'ruangan' ; 
         $data = Ruangan::with(['kategori','gender'])->SearchRuangan()->paginate(10);
         $data->appends(['search' => request('search')]);
+        
         return view(
             'admin.pages.ruangan' , [
                 'data' => $data , 

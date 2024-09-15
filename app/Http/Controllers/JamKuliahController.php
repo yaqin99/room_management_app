@@ -12,6 +12,15 @@ class JamKuliahController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function getJam()
+    {
+      
+        $data = JamKuliahFix::with(['ruangan','dosen'])->paginate(100);
+        return response()->json($data);
+
+     
+    }
     public function layout()
     {
         $data = JamKuliahFix::with(['ruangan','dosen'])->paginate(10);
@@ -33,8 +42,10 @@ class JamKuliahController extends Controller
      */
     public function addJam()
     {
+
+
         $addJam = JamKuliahFix::create([
-            'jam' => request('nama_jam'),
+            'jam' => request('nama'),
             'dosen_id' => request('dosen'),
             'awal' => request('awal'),
             'akhir' => request('akhir'),
@@ -42,9 +53,9 @@ class JamKuliahController extends Controller
             'ruangan_id' => request('ruangan'),
         ]);
 
-        if($addJam){
-            return redirect('/admin/jam');
-        }
+        // if($addJam){
+        //     return redirect('/admin/jam');
+        // }
     }
     
     public function editJam($id)

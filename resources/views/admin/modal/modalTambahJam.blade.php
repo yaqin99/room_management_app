@@ -6,17 +6,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body p-4 py-5 p-md-5">        
-            <form class="signup-form" method="POST" action="/admin/tambahJam" enctype="multipart/form-data">
+            <form class="signup-form" id="formTambahJam" method="POST"  action="/admin/tambahJam" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+
                 <div class="form-group mb-2">
                     <label for="judul" class="text-dark">Nama Jam</label>
                     <div class="input-group">
-                      <input type="text" class="form-control" required name="nama_jam" aria-describedby="button-addon2">
+                      <input type="text" id="nm_jam" class="form-control" required name="nama_jam" aria-describedby="button-addon2">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                   <label  class="form-label">Dosen</label>
-                  <select class="form-select" required name="dosen" required aria-label="Default select example">                    
+                  <select class="form-select" id="tb_dosen" required name="dosen" required aria-label="Default select example">                    
                     <option selected>Pilih Dosen</option>
                     @foreach ($dosen as $k)        
                     <option value="{{ $k->id }}">{{ $k->nama_dosen }}</option>
@@ -26,7 +28,7 @@
                 </div>
                 <div class="form-group mb-2">
                     <label  class="form-label">Ruangan</label>
-                    <select class="form-select" required name="ruangan" required aria-label="Default select example">                    
+                    <select class="form-select" id="tb_ruangan" required name="ruangan" required aria-label="Default select example">                    
                       <option selected >Tentukan Ruangan</option>
                       @foreach ($ruangan as $k)        
                       <option value="{{ $k->id }}">{{ $k->nama_ruangan }}</option>
@@ -36,7 +38,7 @@
                   </div>
                 <div class="form-group mb-2">
                     <label  class="form-label">Hari</label>
-                    <select class="form-select" required name="hari" required aria-label="Default select example">                    
+                    <select class="form-select" id="tb_hari" required name="hari" required aria-label="Default select example">                    
                       <option selected >Tentukan Hari</option>
                         
                       <option value="Senin">Senin</option>
@@ -52,13 +54,13 @@
                 <div class="form-group mb-2">
                     <label for="ukuran" class="text-dark" >Awal</label>
                     <div class="input-group">
-                        <input type="time" class="form-control" required name="awal" aria-describedby="button-addon2">
+                        <input type="time" id="tb_awal" class="form-control" required name="awal" aria-describedby="button-addon2">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                     <label for="kategori" class="text-dark" >Akhir</label>
                     <div class="input-group">
-                        <input type="time" class="form-control" required name="akhir" aria-describedby="button-addon2">
+                        <input type="time" id="tb_akhir" class="form-control" required name="akhir" aria-describedby="button-addon2">
                     </div>
                 </div>
                 
@@ -66,7 +68,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success" onclick="return confirm('Apakah Anda Yakin Menambah Data Ini ?')">Konfirmasi</button>
+                <button type="button" id="jamKonfirmasi" class="btn btn-success" >Konfirmasi</button>
             </div>
         </form>
       </div>

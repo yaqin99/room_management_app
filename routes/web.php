@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [RuanganController::class,'index']);
 Route::get('/admin', [RuanganController::class,'ruangan'])->middleware('AdminNotLogged');
+Route::get('/getJam', [JamKuliahController::class,'getJam']);
 Route::get('/admin/kategori/{kategoriId}', [RuanganController::class,'ruanganKategori'])->middleware('AdminNotLogged');
 Route::get('/admin/gender/{genderiId}', [RuanganController::class,'ruanganGender'])->middleware('AdminNotLogged');
 Route::get('/admin/jam', [JamKuliahController::class,'layout'])->middleware('AdminNotLogged');
